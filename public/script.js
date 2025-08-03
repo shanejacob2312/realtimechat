@@ -1,7 +1,7 @@
 // Socket.IO connection with configurable backend URL
 const BACKEND_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
   ? window.location.origin 
-  : 'realtimechat.railway.internal'; // Replace with your actual backend URL
+  : 'https://realtimechat.railway.app'; // Railway backend URL
 
 const socket = io(BACKEND_URL, {
   transports: ['websocket', 'polling'],
