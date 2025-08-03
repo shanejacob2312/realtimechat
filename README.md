@@ -20,6 +20,7 @@ A modern, real-time chat application built with Node.js, Express, and Socket.IO 
 - **Real-time Communication**: Socket.IO
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **Styling**: Modern CSS with gradients and animations
+- **Deployment**: Netlify
 
 ## Prerequisites
 
@@ -54,9 +55,48 @@ npm start
 
 The application will start on `http://localhost:3000`
 
+## Deployment to Netlify
+
+### Option 1: Deploy from Git Repository
+
+1. **Push to GitHub/GitLab/Bitbucket**:
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push origin main
+   ```
+
+2. **Connect to Netlify**:
+   - Go to [Netlify](https://netlify.com)
+   - Click "New site from Git"
+   - Connect your repository
+   - Configure build settings:
+     - Build command: `npm run build`
+     - Publish directory: `public`
+   - Deploy
+
+### Option 2: Manual Deployment
+
+1. **Build the project**:
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy to Netlify**:
+   - Drag and drop the `public` folder to Netlify
+   - Or use Netlify CLI: `netlify deploy --prod --dir=public`
+
+### Netlify Configuration
+
+The project includes `netlify.toml` for optimized deployment:
+- Static file serving from `public` directory
+- Node.js 18 environment
+- SPA routing support
+- Development server configuration
+
 ## Usage
 
-1. Open your web browser and navigate to `http://localhost:3000`
+1. Open your web browser and navigate to the deployed URL
 2. Enter your username in the login screen
 3. Click "Join Chat" to enter the chat room
 4. Start sending messages and see them appear in real-time
@@ -69,7 +109,8 @@ The application will start on `http://localhost:3000`
 realtimechatapplication/
 ├── server.js              # Main server file with Socket.IO setup
 ├── package.json           # Project dependencies and scripts
-├── public/               # Frontend files
+├── netlify.toml          # Netlify deployment configuration
+├── public/               # Frontend files (deployed to Netlify)
 │   ├── index.html        # Main HTML file
 │   ├── styles.css        # CSS styles
 │   └── script.js         # Frontend JavaScript
@@ -164,6 +205,11 @@ The modular structure makes it easy to add new features:
    - Verify Socket.IO connection status
    - Check server logs for errors
 
+4. **Netlify deployment issues**
+   - Ensure `public` directory contains all frontend files
+   - Check build logs in Netlify dashboard
+   - Verify `netlify.toml` configuration
+
 ### Debug Mode
 Enable debug logging by adding to `server.js`:
 ```javascript
@@ -182,6 +228,7 @@ const io = socketIo(server, {
 - Messages are broadcast efficiently to all connected clients
 - User lists are updated only when necessary
 - Typing indicators use debouncing to reduce server load
+- Netlify provides global CDN for fast static file delivery
 
 ## Security Notes
 

@@ -78,6 +78,7 @@ dist
 
 # Gatsby files
 .cache/
+# Note: public/ directory is NOT excluded for Netlify deployment
 
 # Storybook build outputs
 .out

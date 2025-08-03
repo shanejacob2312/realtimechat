@@ -5,9 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "echo 'Build completed'",
+    "postinstall": "echo 'Dependencies installed'"
   },
-  "keywords": ["chat", "realtime", "socket.io", "messaging"],
+  "keywords": ["chat", "realtime", "socket.io", "messaging", "netlify"],
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -17,5 +19,8 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 } 
